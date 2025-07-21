@@ -38,5 +38,5 @@ def handle_callback(bot, call: CallbackQuery):
 
         if index < len(books):
             book = books[index]
-            text = f"📖 Siz tanlagan kitob:\n\nNomi: {book['title']}\nMuallif: {book['author']}"
+            text = f"📖 Siz tanlagan kitob:\n\nNomi: {book['title']}\nMuallif: {book['author']}\nNarxi: {book['price']}"
             bot.send_message(call.message.chat.id, text)
