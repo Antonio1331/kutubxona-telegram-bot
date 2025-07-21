@@ -1,16 +1,11 @@
-import json
-from data.loader import bot
+from telebot.types import CallbackQuery
 
 
-@bot.callback_query_handler(func=lambda call: True)
-def callback_handler(call):
+def handle_callback(bot, call: CallbackQuery):
     if call.data == "catalog":
-        with open("database/books.json", "r", encoding="utf-8") as f:
-            books = json.load(f)
-
-        for book in books:
-            text = f"<b>{book['title']}</b>\nMuallif: {book['author']}\nNarxi: {book['price']}"
-            bot.send_message(call.message.chat.id, text, parse_mode="HTML")
+        bot.answer_callback_query(call.id)
+        bot.send_message(call.message.chat.id, "📚 Bu yerda katalog mavjud emas hozircha.")
 
     elif call.data == "contact":
-        bot.send_message(call.message.chat.id, "Bog‘lanish uchun: @admin_username")
+        bot.answer_callback_query(call.id)
+        bot.send_message(call.message.chat.id, "📞 Biz bilan bog‘lanish uchun: +998 90 123 45 67")

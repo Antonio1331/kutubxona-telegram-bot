@@ -1,9 +1,8 @@
-from telegram import ReplyKeyboardMarkup, KeyboardButton
+from telegram import ReplyKeyboardMarkup
 
-def main_menu_buttons():
+def main_menu():
     keyboard = [
-        [KeyboardButton("📚 Kitoblar ro'yxati")],
-        [KeyboardButton("🔎 Janrlar bo'yicha")],
-        [KeyboardButton("📩 Bog'lanish")],
+        ['📚 Kitoblar', '📖 Janrlar'],
+        ['ℹ️ Yordam', '📞 Aloqa']
     ]
     return ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
